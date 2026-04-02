@@ -129,7 +129,7 @@ To create the files, the following steps are required (Runtime 30 s):
  
  **STEP A:** Via the terminal install all packages listed in `environment.yml`.
 
- **STEP B:** Place all .csv files created in 2.2. in the folder `figure-table-codes\data\`.
+ **STEP B:** Place all .csv files created in A.2.2. in the folder `figure-table-codes\data\`.
 
  **STEP C:** Via the terminal navigate to `src\` and run the code in `src\run.py` to create all figures and tables.
    Outputs will be saved to `out\` . Calculations for the fiscal multiplier are printed at the end of the file
