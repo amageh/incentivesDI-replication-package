@@ -89,17 +89,17 @@ Run the file `syntax/do-rdd/00_main.do`. The file will perform the following ste
     - *first_stage*: 
        - Benefit heterogeneity (Figure 6) [*OUT_FIRSTSTAGE_HETEROGENEITY.csv*]
     - *labor_supply*:
-       - RDD graphs employment (Figure 9) [*REGEMP_rec_by_gender.png, REGEMP_avg_rec_by_gender.png,
+       - RDD graphs employment (Figure 8) [*REGEMP_rec_by_gender.png, REGEMP_avg_rec_by_gender.png,
      MEMP_rec_by_gender.png, MEMP_rec_by_gender.png*]
        - Employment outcomes (Table 3) [*OUT_LABOR_CONTROLS.csv*, *OUT_RDD_EMPLOYMENT_BW.csv*]
-       - Employment heterogeneity (Figure 10) [*OUT_LABOR_HETEROGENEITY.csv*]
+       - Employment heterogeneity (Figure 9) [*OUT_LABOR_HETEROGENEITY.csv*]
     - *status*: 
-       - RDD graph recipient status after 4 years [*status_none_post4_by_gender.png*]
-       - Exit heterogeneity (Figure 12) [*OUT_STATUS_HETEROGENEITY.csv*]
+       - RDD graph recipient status after 4 years (Figure 10) [*status_none_post4_by_gender.png*]
+       - Exit heterogeneity (Figure 11) [*OUT_STATUS_HETEROGENEITY.csv*]
        - Exit outcomes annual (Table 4) [*OUT_STATUS_CONTROLS.csv*, *OUT_RDD_STATUS_BW.csv*]
     - *mortality*:
-       - RDD graph mortality (Figure 13) [*dead_post_6_by_gender.png*]
-       - Mortality heterogeneity (Figure 14) [*OUT_MORTALITY_HETEROGENEITY.csv*]
+       - RDD graph mortality (Figure 12) [*dead_post_6_by_gender.png*]
+       - Mortality heterogeneity (Figure 13) [*OUT_MORTALITY_HETEROGENEITY.csv*]
        - Exit ouctomes annual (Table 5) [*OUT_MORTALITY_CONTROLS.csv*, *OUT_RDD_MORTALITY_BW.csv*]
     - Appendix materials
 
@@ -114,7 +114,7 @@ Run the file `syntax/do-takeup/00_main.do`. The file will create the following o
  **STEP B**: Run analysis
 
   - **Output files**: saved to `A_takeup/`
-    - Graphs on DI takeup (Figure 4 a&b) [two figures] 
+    - Graphs on DI takeup (Figure 4) [two figures] 
     - Regression results (Table 1) [three .tex files]
 
 Lastly, ask an employee of the FDZ-RV data center to export all results stored in `out/`.
@@ -142,9 +142,9 @@ To create the files, the following steps are required (Runtime 30 s):
  FIGURES:
 
  - Heterogeneity in benefits (Figure 6) [*rdd-heterogeneity-RTBT_2014.png*]
- - Heterogeneity in earnings (Figure 10) [*rdd-heterogeneity-MEMP_avg_rec.png*, *rdd-heterogeneity-REGEMP_avg_rec.png*]
- - Heterogeneity in exit (Figure 12) [*rdd-heterogeneity-status_pension_post4.png*]
- - Heterogeneity in mortality (Figure 14) [*rdd-heterogeneity-dead_post_6.png*]
+ - Heterogeneity in earnings (Figure 9) [*rdd-heterogeneity-MEMP_avg_rec.png*, *rdd-heterogeneity-REGEMP_avg_rec.png*]
+ - Heterogeneity in exit (Figure 11) [*rdd-heterogeneity-status_pension_post4.png*]
+ - Heterogeneity in mortality (Figure 13) [*rdd-heterogeneity-dead_post_6.png*]
 
  TABLES:
 
