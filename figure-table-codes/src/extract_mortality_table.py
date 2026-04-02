@@ -1,8 +1,5 @@
 import pandas as pd
-import warnings
 from extract_table import build_and_save_outcome_table
-
-warnings.filterwarnings("ignore")
 
 
 def extract_mortality_table(

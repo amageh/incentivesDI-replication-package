@@ -1,8 +1,6 @@
 import pandas as pd
 import numpy as np
-import warnings
 
-warnings.filterwarnings("ignore")
 
 
 def extract_covariates_table(input_csv_path: str, output_tex_path: str) -> pd.DataFrame:

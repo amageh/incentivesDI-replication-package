@@ -14,10 +14,11 @@ set scheme white_ptol
 *******************************************************************************
 * SET GLOBAL PATHS FOR PROJECT
 *******************************************************************************
-global PATH = "D:\gastwissenschaftler\gastw_5\Gehlen\PRJ2208221050\fdz-rv-codes"
+* Adjust main data paths:
+global PATH = "XXX\fdz-rv-codes"
+global DATA = "XXX\data"
 
-global DATA = "D:\gastwissenschaftler\gastw_5\Gehlen\PRJ2208221050\data"
-
+* Temp and output paths.
 global PROCESS_TEMP = "$PATH\temp"
 
 global OUTPUT = "$PATH\out"
@@ -67,7 +68,7 @@ do $PATH\syntax\do-rdd\B_01_simulated_pensions.do
 
 do $PATH\syntax\do-rdd\B_02_employment.do 
 
-do $PATH\syntax\do-rdd\B_03_mortality_predictors_supplmentary_analysis.do
+do $PATH\syntax\do-rdd\B_03_mortality_predictors_supplementary_analysis.do
 
 do $PATH\syntax\do-rdd\B_04_mortality.do 
 
@@ -76,48 +77,40 @@ do $PATH\syntax\do-rdd\B_05_replacement_levels.do
 
 * C. Analysis RDD - Balancing --------------------------------------------------
 
-* D.1. Main estimates covariatres
+* C.1. Main estimates covariatres
 do $PATH\syntax\do-rdd\C_01_rdd_covariates.do
 
-* D.2. Plots covariates
+* C.2. Plots covariates
 do $PATH\syntax\do-rdd\C_02_rdd_covariates_plots.do
 
-* D.3. Manipulation of entry date
+* C.3. Manipulation of entry date
 do $PATH\syntax\do-rdd\C_03_manipulation_app_entry.do
 
-* D.4. Density of entries/applications
+* C.4. Density of entries/applications
 do $PATH\syntax\do-rdd\C_04_density_obs.do 
 
-* (D.5. First stage estimates with and without mother pension bonus)
+* C.5. First stage estimates with and without mother pension bonus
 do $PATH\syntax\do-rdd\C_05_benefit_increase_MP.do 
 
-* E. Analysis RDD - employment & mortality--------------------------------------
+* D. Analysis RDD - employment & mortality & exit --------------------------
 
 * MORTALITY
-* E.1. Table mortality
 do $PATH\syntax\do-rdd\D_01_tab_mortality.do
 
-* E.2. Plots mortality
 do $PATH\syntax\do-rdd\D_02_plot_mortality.do
 
-* E.3. BW sensitivity mortality
 do $PATH\syntax\do-rdd\D_03_rdd_mortality_bw
 
-* E.8. Mortality estimates with covariates (corresponds to E_01_tab_mortality)
 do $PATH\syntax\do-rdd\D_08_tab_mortality_with_covariates.do
 
 
 * EMPLOYMENT
-* E.4. Table employment
 do $PATH\syntax\do-rdd\D_04_tab_employment.do
 
-* E.5. Plots employment
 do $PATH\syntax\do-rdd\D_05_plot_employment.do
 
-* E.6. BW employment
 do $PATH\syntax\do-rdd\D_06_rdd_employment_bw
 
-* E.7. Employment estimates with covaraites (corresponds to E_04_tab_employment)
 do $PATH\syntax\do-rdd\D_07_tab_employment_with_covariates.do
 
 
@@ -136,7 +129,6 @@ do $PATH\syntax\do-rdd\D_13_robustness_heterogeneity.do
 
 do $PATH\syntax\do-rdd\D_14_donut_manufacturing.do
 
-* Run estimation for main outcomes on permanent DI recipients
 do $PATH\syntax\do-rdd\D_15_robustness_permanent_DI.do
 
 do $PATH\syntax\do-rdd\D_16_heterogeneity_first_stage.do

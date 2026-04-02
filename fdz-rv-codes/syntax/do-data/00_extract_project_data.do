@@ -17,14 +17,14 @@ set max_memory .
 * !!ADJUST PATHS BELOW!!
 
 * INPUT FOLDERS FOR RTZN, RTWF, & AKVS
-global PWD_RTZN = "D:\rohdaten_fdz\RTZN"
-global PWD_RTWF = "D:\rohdaten_fdz\RTWF"
-global PWD_AKVS = "D:\rohdaten_fdz\AKVS"
+global PWD_RTZN = "XXX\RTZN"
+global PWD_RTWF = "XXX\RTWF"
+global PWD_AKVS = "XXX\AKVS"
 
 * OUTPUT FOLDER FOR FILTERED DATASETS 
-global PWD_OUT_RTZN = "D:\gastwissenschaftler\GASTX\Gehlen\PRJ2208221050\Data\RTZN"
+global PWD_OUT_RTZN = "XXX\Data\RTZN"
 * OUTPUT FOLDER FOR FILTERED DATASETS WITH RELEVANT INDIVIDUALS
-global PWD_OUT = "D:\gastwissenschaftler\GASTX\Gehlen\PRJ2208221050\Data\RTZN"
+global PWD_OUT = "XXX\Data\RTZN"
 
 
 

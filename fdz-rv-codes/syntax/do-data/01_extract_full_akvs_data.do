@@ -6,11 +6,10 @@ set max_memory .
 set matsize 5000
 
 * Path to master data files
-global DATA =  "$PATH\rohdateien" // Hier muss der Pfad zu den Rohdateien der AKVS delegt werden
+global DATA =  "XXX\AKVS" // Hier muss der Pfad zu den Rohdateien der AKVS delegt werden
 
 * Data paths for user
-global PATH = "D:\gastwissenschaftler\gastw_5\Gehlen\PRJ2901241655\"
-global DATA_OUT = "$PATH\Data\AKVS"
+global DATA_OUT = "XXX\Data\AKVS"
 
 ********************************************************************************
 * 1. Define label for variable covering insurance status

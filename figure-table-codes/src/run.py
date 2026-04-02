@@ -1,3 +1,5 @@
+"""Main script to run all table extraction and graph generation functions."""
+
 import matplotlib.pyplot as plt
 
 
