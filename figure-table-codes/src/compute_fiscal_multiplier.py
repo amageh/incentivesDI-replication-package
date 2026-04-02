@@ -101,7 +101,7 @@ def compute_fiscal_multiplier():
 
     # Average duration of temporary DI as share of time until retirement.
     # Temporary DI lasts 3 years, average DI recipient in sample is
-    # 50 and has 16 years until retirement at 66 for our sample. So D=3/16=0.19.
+    # 49 and has 16 years until retirement at 65 for our sample. So D=3/16=0.19.
     D = 0.19
 
     # Baseline extension rate of DI benefits for temporary recipients.
@@ -111,7 +111,7 @@ def compute_fiscal_multiplier():
     # Weigh takeup-elasticity by share of 50-60 year olds (58%)in DI population.
     # (assumes elasticity of 0 for age group below 50)
     # Replace weight with 1 to apply elasticity to all DI recipients.
-    epsilon_t = 0.0058 * 0.58
+    epsilon_t = 0.0058* 0.58
     # Extension elasticity (all temporary recipients).
     epsilon_e = 0.0017
 
