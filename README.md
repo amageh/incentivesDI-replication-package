@@ -197,8 +197,8 @@ figure-table-codes/
 | Figure 6 (Earnings heterogeneity) | out/rdd-heterogeneity-MEMP_avg_rec.eps, out/rdd-heterogeneity-REGEMP_avg_rec.eps | OUT_LABOR_HETEROGENEITY.csv | src/run.py (via plot_heterogeneity_graphs.py) |
 | Figure 7 (Exit heterogeneity)     | out/rdd-heterogeneity-status_pension_post4.eps | OUT_STATUS_HETEROGENEITY.csv | src/run.py (via plot_heterogeneity_graphs.py) |
 | Table 1 (Takeup regressions)      | A_takeup/02_reg_pooled_takeup_all_50to60.tex, 02_reg_pooled_takeup_female_50to60.tex, 02_reg_pooled_takeup_male_50to60.tex | — | do-takeup/00_main.do |
-| Table 2 (Covariate balancing)     | out/covariates.tex               | OUT_RDD_COVARIATES_BW.csv                             | src/run.py (via extract_covariates_table.py); CSV from do-rdd/C_01_rdd_covariates.do |
-| Table 3 (Employment outcomes)     | out/employment.tex               | OUT_LABOR_HETEROGENEITY.csv, appendix_OUT_LABOR_CONTROLS.csv | src/run.py (via extract_employment_table.py); CSVs from do-rdd/D_04_tab_employment.do and do-rdd/D_07_tab_employment_with_covariates.do |
-| Table 4 (DI exit annual)          | out/status-annual-pension.tex    | OUT_STATUS_HETEROGENEITY.csv, OUT_STATUS_CONTROLS.csv | src/run.py (via extract_status_table.py); CSVs from do-rdd/D_10_tab_status.do and do-rdd/D_12_tab_status_with_covariates.do |
-| Table 5 (Mortality)               | out/mortality-fraction-dead.tex  | appendix_OUT_MORTALITY_HETEROGENEITY.csv, OUT_MORTALITY_CONTROLS.csv | src/run.py (via extract_mortality_table.py); CSVs from do-rdd/D_01_tab_mortality.do and do-rdd/D_08_tab_mortality_with_covariates.do |
+| Table 2 (Covariate balancing)     | out/covariates.tex               | OUT_RDD_COVARIATES_BW.csv                             | src/run.py (via extract_covariates_table.py) |
+| Table 3 (Employment outcomes)     | out/employment.tex               | OUT_LABOR_HETEROGENEITY.csv, appendix_OUT_LABOR_CONTROLS.csv | src/run.py (via extract_employment_table.py)|
+| Table 4 (DI exit annual)          | out/status-annual-pension.tex    | OUT_STATUS_HETEROGENEITY.csv, OUT_STATUS_CONTROLS.csv | src/run.py (via extract_status_table.py) |
+| Table 5 (Mortality)               | out/mortality-fraction-dead.tex  | appendix_OUT_MORTALITY_HETEROGENEITY.csv, OUT_MORTALITY_CONTROLS.csv | src/run.py (via extract_mortality_table.py) |
 | Table 7 (Fiscal Multiplier)       | fiscal_multiplier.tex       | —  | src/run.py (via compute_fiscal_multiplier.py) |
