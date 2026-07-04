@@ -16,9 +16,9 @@ drop if abs(bandwidth) > 30
 
 local out_path = "$D_OUT_LABOR_SUPPLY/"
 
-func_RDD_PLOT MEMP_rec `""Fraction with any" "Marg. Employment""' `out_path'	
-func_RDD_PLOT REGEMP_rec `""Fraction with any" "Insured Employment""' `out_path'	
-func_RDD_PLOT MEMP_avg_rec `""Average Earnings from Marg." "Employment after Award""' `out_path'	
+func_RDD_PLOT MEMP_rec `""Fraction with any" "Marg. Employment""' `out_path'
+func_RDD_PLOT REGEMP_rec `""Fraction with any" "Insured Employment""' `out_path'
+func_RDD_PLOT MEMP_avg_rec `""Average Earnings from Marg." "Employment after Award""' `out_path'
 func_RDD_PLOT REGEMP_avg_rec `""Average Earnings from Ins." "Employment after Award""' `out_path'
 
 

@@ -67,8 +67,8 @@ preserve
 		xline(0, lcolor(red) lwidth(medthick) lpattern(dash_dot)) ///
 		xtitle("Entry month - reform date", size(12pt)) ///
 			ytitle("Fraction of sample", size(12pt))
-	graph export $C_OUT_MANIPULATION/density_plot_rdd_gender.png, replace
-	graph export $C_OUT_MANIPULATION/density_plot_rdd_gender.eps, replace
+	graph export $C_OUT_MANIPULATION/appendix_density_plot_rdd_gender.png, replace
+	graph export $C_OUT_MANIPULATION/appendix_density_plot_rdd_gender.eps, replace
 	
 * RUN REGRESSIONS 
 	*rdbwselect counter running, p(1)

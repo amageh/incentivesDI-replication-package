@@ -106,6 +106,6 @@ foreach g in age_1 age_2 age_3 female male diag_1 diag_2 diag_3 diag_4 diag_5 di
 	append using $D_TEMP_FIRSTSTAGE/MAT_`g'.dta
 
 }
-export delimited using $D_OUT_FIRSTSTAGE/OUT_FIRSTSTAGE_HETEROGENEITY.csv, replace
+export delimited using $D_OUT_FIRSTSTAGE/appendix_OUT_FIRSTSTAGE_HETEROGENEITY.csv, replace
 
 save $D_TEMP_FIRSTSTAGE/MAT_ALL.dta, replace

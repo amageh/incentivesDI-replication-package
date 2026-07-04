@@ -91,7 +91,7 @@ foreach g in age_1 age_2 age_3 female male diag_1 diag_2 diag_3 diag_4 diag_5 di
 	append using $D_TEMP_MORTALITY/MAT_`g'.dta
 
 }
-export delimited using $D_OUT_MORTALITY/OUT_MORTALITY_HETEROGENEITY.csv, replace
+export delimited using $D_OUT_MORTALITY/appendix_OUT_MORTALITY_HETEROGENEITY.csv, replace
 save $D_TEMP_MORTALITY/MAT_ALL.dta, replace
 
 

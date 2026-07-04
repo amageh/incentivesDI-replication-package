@@ -23,7 +23,7 @@ def run_all():
         output_tex_path="../out/covariates.tex",
     )
     results["mortality"] = extract_mortality_table(
-        df_path="../data/OUT_MORTALITY_HETEROGENEITY.csv",
+        df_path="../data/appendix_OUT_MORTALITY_HETEROGENEITY.csv",
         controls_path="../data/OUT_MORTALITY_CONTROLS.csv",
         output_path="../out/mortality-fraction-dead.tex",
     )
@@ -66,7 +66,7 @@ def run_all():
     ):
         results[label] = extract_employment_table(
             df_path="../data/OUT_LABOR_HETEROGENEITY.csv",
-            controls_path="../data/OUT_LABOR_CONTROLS.csv",
+            controls_path="../data/appendix_OUT_LABOR_CONTROLS.csv",
             output_path=f"../out/{label}.tex",
             outcomes=outcome_list,
         )
@@ -100,7 +100,7 @@ if __name__ == "__main__":
     # Benefits/first stage
     for lim, relative in zip([(-200, 200), (-0.2, 0.2)], [False, True]):
         result = func_select_outcome_df(
-            outcome="RTBT_2014", results_csv=r"OUT_FIRSTSTAGE_HETEROGENEITY.csv"
+            outcome="RTBT_2014", results_csv=r"appendix_OUT_FIRSTSTAGE_HETEROGENEITY.csv"
         )
         coefplot(
             data=result,
@@ -109,13 +109,13 @@ if __name__ == "__main__":
             label_size=20,
             xlim=lim,
             relative=relative,
-            appendix=relative,
+            appendix=True,
         )
         plt.close()
 
     # Mortality
     result = func_select_outcome_df(
-        outcome="dead_post_6", results_csv=r"OUT_MORTALITY_HETEROGENEITY.csv"
+        outcome="dead_post_6", results_csv=r"appendix_OUT_MORTALITY_HETEROGENEITY.csv"
     )
     coefplot(
         data=result,
@@ -123,6 +123,7 @@ if __name__ == "__main__":
         tick_size=20,
         label_size=20,
         xlim=(-0.2, 0.2),
+        appendix=True,
     )
     plt.close()
 

@@ -87,7 +87,7 @@ foreach g in female male {
 	append using $D_TEMP_LABOR/with_controls/MAT_`g'.dta
 
 }
-export delimited using $D_OUT_LABOR_SUPPLY/OUT_LABOR_CONTROLS.csv, replace
+export delimited using $D_OUT_LABOR_SUPPLY/appendix_OUT_LABOR_CONTROLS.csv, replace
 
 save $D_TEMP_LABOR/with_controls/MAT_ALL.dta, replace
 

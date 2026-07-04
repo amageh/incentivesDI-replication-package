@@ -188,10 +188,9 @@ figure-table-codes/
  ```
 
 
-OVERVIEW OF FIGURES AND TABLES
-------------------------------
+## OVERVIEW OF FIGURES AND TABLES
 
-| Paper element | Output file (extension) | Source CSV(s) (in figure-table-codes/data/) | Producing script |
+| Paper element | Output file        | Source CSV(s) (in figure-table-codes/data/) | Producing script |
 |---|---|---|---|
 | Figure 4 (DI takeup)              | A_takeup/01_graph_mean_START_GDI_all_50to60.{png,eps,pdf}, A_takeup/02_graph_estimates_m_takeup_gdi_all_50to60.{png,eps,pdf} | — | do-takeup/00_main.do |
 | Figure 5 (Benefit change)         | C_balancing/covariates/RTBT_2014_by_gender.{png,eps} | — | do-rdd/C_02_rdd_covariates_plots.do |
@@ -202,5 +201,4 @@ OVERVIEW OF FIGURES AND TABLES
 | Table 3 (Employment outcomes)     | out/employment.tex               | OUT_LABOR_HETEROGENEITY.csv, appendix_OUT_LABOR_CONTROLS.csv | src/run.py (via extract_employment_table.py); CSVs from do-rdd/D_04_tab_employment.do and do-rdd/D_07_tab_employment_with_covariates.do |
 | Table 4 (DI exit annual)          | out/status-annual-pension.tex    | OUT_STATUS_HETEROGENEITY.csv, OUT_STATUS_CONTROLS.csv | src/run.py (via extract_status_table.py); CSVs from do-rdd/D_10_tab_status.do and do-rdd/D_12_tab_status_with_covariates.do |
 | Table 5 (Mortality)               | out/mortality-fraction-dead.tex  | appendix_OUT_MORTALITY_HETEROGENEITY.csv, OUT_MORTALITY_CONTROLS.csv | src/run.py (via extract_mortality_table.py); CSVs from do-rdd/D_01_tab_mortality.do and do-rdd/D_08_tab_mortality_with_covariates.do |
-| Table 7 (Fiscal Multiplier)       | out/fiscal_multiplier.tex        | — (uses src/fiscal-multiplier.xlsx) | src/run.py (via compute_fiscal_multiplier.py) |
-
+| Table 7 (Fiscal Multiplier)       | fiscal_multiplier.tex       | —  | src/run.py (via compute_fiscal_multiplier.py) |
