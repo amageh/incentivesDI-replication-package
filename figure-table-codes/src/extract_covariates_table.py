@@ -2,7 +2,6 @@ import pandas as pd
 import numpy as np
 
 
-
 def extract_covariates_table(input_csv_path: str, output_tex_path: str) -> pd.DataFrame:
     # Read in data.
     df = pd.read_csv(input_csv_path)

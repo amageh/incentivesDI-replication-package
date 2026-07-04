@@ -100,7 +100,8 @@ if __name__ == "__main__":
     # Benefits/first stage
     for lim, relative in zip([(-200, 200), (-0.2, 0.2)], [False, True]):
         result = func_select_outcome_df(
-            outcome="RTBT_2014", results_csv=r"appendix_OUT_FIRSTSTAGE_HETEROGENEITY.csv"
+            outcome="RTBT_2014",
+            results_csv=r"appendix_OUT_FIRSTSTAGE_HETEROGENEITY.csv",
         )
         coefplot(
             data=result,

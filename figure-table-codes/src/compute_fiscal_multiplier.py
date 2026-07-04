@@ -111,7 +111,7 @@ def compute_fiscal_multiplier():
     # Weigh takeup-elasticity by share of 50-60 year olds (58%)in DI population.
     # (assumes elasticity of 0 for age group below 50)
     # Replace weight with 1 to apply elasticity to all DI recipients.
-    epsilon_t = 0.0058* 0.58
+    epsilon_t = 0.0058 * 0.58
     # Extension elasticity (all temporary recipients).
     epsilon_e = 0.0017
 

@@ -2,6 +2,7 @@ import pandas as pd
 
 from extract_table import build_and_save_outcome_table
 
+
 def extract_employment_table(
     df_path,
     controls_path,
