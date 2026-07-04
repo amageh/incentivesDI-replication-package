@@ -1,26 +1,31 @@
-# REPLICATION PACKAGE
+============================================
+REPLICATION PACKAGE
+============================================
 
 This repository contains replication code for generating all tables and figures in the
-paper "*Incentive Effects of Disability Benefits*" (Annica Gehlen, Sebastian Becker, Johannes Geyer, Peter Haan)
+paper "Incentive Effects of Disability Benefits" (Annica Gehlen, Sebastian Becker, Johannes Geyer, Peter Haan)
 
-## REQUIREMENTS
+============================================
+REQUIREMENTS
+============================================
 
-Data Analysis
-
+DATA ANALYSIS
 - Stata 18.0
 - Required packages: rdrobust
 - Data access to the administrative data by the German Pension Insurance (DRV)
 
-Selected Output Graphs and Tables
-
+SELECTED OUTPUT GRAPHS AND TABLES
 - Python 3.11 or higher
 - Required packages: pandas, numpy, matplotlib
 
-## DATA
 
-Running this replication package requires access to the administrative data and secure remote access environment provided by the research data center of the German Pension Insurance (FDZ-RV).
+============================================
+DATA
+============================================
 
-Information on applying for data access is available here: https://fdz-rv.de/en
+Running this replication package requires access to the adminsitartive data and secure remote acess environment provided by the research data center of the German Pension Insurance (FDZ-RV).
+
+Information on applying for data access is available here: XXXXXXXXXXXXXX
 
 The statistics data files used are:
 
@@ -28,141 +33,155 @@ The statistics data files used are:
 - AKVS 2011-2021
 - RTWF 2012-2021
 
-## PREPARE PROJECT DATA
 
-The preparation of the project data has to be done by an *employee of the FDZ-RV* who as access to the master data files provided by the research data center. To prepare the data (and later run the analysis), the folder `fdz-rv-codes/` needs to be copied to the remote access directory at the research data center.
+=======================================
+PREPARE PROJECT DATA
+=======================================
 
-They then need to run the scripts to prepare the relevant data sets:
+The preparation of the project data has to be done by an *employee of the FDZ-RV* who as access to the master data files provided by the research data center.
 
-- `syntax/do-data/00_extract_project_data.do`
-- `syntax/do-data/01_extract_full_akvs_data.do`
+They need to run the script:
 
-Running these scripts will require updating the file paths at the top of the file.
+- syntax/do-data/00_extract_project_data.do
+- syntax/do-data/01_extract_full_akvs_data.do
+
+Running these scripts will require updating the file paths at the top of the file. 
 
 The first script adds the data of DI recipients used in the paper to the directory data/. This step first extracts all individuals who started receiving DI benefits between 2011 and 2021 from the RTZN and than extracts employment data from the AKVS and mortality information from the RTWF based on their IDs.
 
 The second script draws a subset of variables from the full AKVS data for the years 2012-2017 which is used in the takeup analysis.
 
-## REPLICATION INSTRUCTIONS
 
-### A. DATA ANALYSIS @ THE FDZ-RV
+=======================================
+REPLICATION INSTRUCTIONS
+=======================================
 
-Part A of this replication packages includes instructions on running the main analysis at the research data center FDZ-RV with their on-site data once the project data has been prepared by an employee of the FDZ-RV.
+A. DATA ANALYSIS @ THE FDZ-RV
+------------------------------
 
-All analyses use STATA and need to be performed at a research data center or via remote access.
-
-**1. Update file paths & add output and temp folders**
+1. UPDATE FILE PATHS
 
 Before running the scripts, update the file paths in the main do files:
 
-- `syntax/do-rdd/00_main.do`
-- `syntax/do-takeup/00_main.do`
+- syntax/do-rdd/00_main.do
+- syntax/do-takeup/00_main.do
 
 
-**2. Run main scripts**
+2. RUN MAIN SCRIPTS
 
-There are two main files to run the full data cleaning and analysis pipeline.
+There are two main files to run the full data cleaning and analysis pipeline. 
 
-**2.1. Run the RDD analysis on employment, DI exit, and mortality:** (Runtime ca. 8 h)
+2.1. Run the RDD analysis on employment, DI exit, and mortality: (Runtime ca. 8 h)
 
-Run the file `syntax/do-rdd/00_main.do`. The file will perform the following steps and create the following outputs:
+Run the file "syntax/do-rdd/00_main.do". The file will perform the following steps and create the following outputs:
   
- **STEP A:** Clean data and create main analysis sample (Runtime 20 mins)
+	STEP A: Clean data and create main analysis sample (Runtime 20 mins)
+        - **Output files**: dta files saved to temp/
+	STEP B: Create descriptive statistics (Runtime 5 mins)
+        - **Output files**: Appendix files saved to out/B_descriptives
+	STEP C: Run balancing checks (Runtime 45 mins)
+        - **Output files**: saved to out/C_balancing
+		- Benefit change graph (Figure 5) [RTBT_2014_by_gender.png]
+        - Balancing Table Output (Table 2) [OUT_RDD_COVARIATES_BW.csv]
+		- Appendix materials
+	STEP D: Run main RDD analysis (Runtime 5-7 h)
+	 - **Output**: saved to D_RDD_outputs
+		- labor_supply:
+			- Employment outcomes (Table 3) [OUT_LABOR_CONTROLS.csv, OUT_RDD_EMPLOYMENT_BW.csv]
+			- Employment heterogeneity (Figure 6) [OUT_LABOR_HETEROGENEITY.csv]
+		- status: 
+			- Exit heterogeneity (Figure 7) [OUT_STATUS_HETEROGENEITY.csv]
+			- Exit outcomes annual (Table 4) [OUT_STATUS_CONTROLS.csv, OUT_RDD_STATUS_BW.csv]
+		- mortality:
+			- Exit outcomes annual (Table 5) [OUT_MORTALITY_CONTROLS.csv, OUT_RDD_MORTALITY_BW.csv]
+		- Appendix materials
 
-  - **Output files**: dta files saved to `temp/`
-  
- **STEP B:** Create descriptive statistics (Runtime 5 mins)
 
-  - **Output files**: Appendix files saved to `out/B_descriptives`
-  
- **STEP C:** Run balancing checks (Runtime 45 mins)
+2.2. Run the takeup analysis (Runtime ca. 2h)
 
-  - **Output files**: saved to `out/C_balancing/`
-    - Benefit change graph (Figure 5) [*RTBT_2014_by_gender.png*]
-    - Density Graph (Figure 7) [*density_plot_rdd_gender.png*]
-    - Balancing Table Output (Table 2) [*OUT_RDD_COVARIATES_BW.csv*]
-    - Appendix materials
-  
- **STEP D:** Run main RDD analysis (Runtime 5-7 h)
+Run the file "syntax/do-takeup/00_main.do". The file will create the following outputs:
 
-  - **Output**: saved to D_RDD_outputs
-    - *first_stage*: 
-       - Benefit heterogeneity (Figure 6) [*OUT_FIRSTSTAGE_HETEROGENEITY.csv*]
-    - *labor_supply*:
-       - RDD graphs employment (Figure 8) [*REGEMP_rec_by_gender.png, REGEMP_avg_rec_by_gender.png,
-     MEMP_rec_by_gender.png, MEMP_rec_by_gender.png*]
-       - Employment outcomes (Table 3) [*OUT_LABOR_CONTROLS.csv*, *OUT_RDD_EMPLOYMENT_BW.csv*]
-       - Employment heterogeneity (Figure 9) [*OUT_LABOR_HETEROGENEITY.csv*]
-    - *status*: 
-       - RDD graph recipient status after 4 years (Figure 10) [*status_none_post4_by_gender.png*]
-       - Exit heterogeneity (Figure 11) [*OUT_STATUS_HETEROGENEITY.csv*]
-       - Exit outcomes annual (Table 4) [*OUT_STATUS_CONTROLS.csv*, *OUT_RDD_STATUS_BW.csv*]
-    - *mortality*:
-       - RDD graph mortality (Figure 12) [*dead_post_6_by_gender.png*]
-       - Mortality heterogeneity (Figure 13) [*OUT_MORTALITY_HETEROGENEITY.csv*]
-       - Exit ouctomes annual (Table 5) [*OUT_MORTALITY_CONTROLS.csv*, *OUT_RDD_MORTALITY_BW.csv*]
-    - Appendix materials
+	STEP A: Clean data and create main analysis sample 
+	 - **Output files**: dta files saved to temp/
+	STEP B: Run analysis
+	 - **Output files**: saved to A_takeup/
+		- Graph on DI takeup (Figure 4) 
+		- Regression results (Table 1) [three .tex files]
 
-**2.2. Run the takeup analysis** (Runtime ca. 2h)
+Lastly, ask an employee of the FDZ-RV data center to export all results stored in out/.
 
-Run the file `syntax/do-takeup/00_main.do`. The file will create the following outputs:
-
- **STEP A**: Clean data and create main analysis sample 
-
-  - **Output files**: dta files saved to temp/
-  
- **STEP B**: Run analysis
-
-  - **Output files**: saved to `A_takeup/`
-    - Graphs on DI takeup (Figure 4) [two figures] 
-    - Regression results (Table 1) [three .tex files]
-
-Lastly, ask an employee of the FDZ-RV data center to export all results stored in `out/`.
-
-### B. PRODUCING FINAL FIGURES & TABLES (ON OWN MACHINE)
+B. PRODUCING FINAL FIGURES & TABLES (ON OWN MACHINE)
+----------------------------------------------------
 
 Most of the figures in the paper are produced using Python and are based on .csv data generated by running the codes above at the FDZ-RV. After producing the .csv outputs above, the figures and tables are created using a Python routine.
 
-The codes are stored in the folder `figure-table-codes\src`.
+The codes are stored in the folder figure-table-codes\src.
 
 To create the files, the following steps are required (Runtime 30 s):
- 
- **STEP A:** Via the terminal install all packages listed in `environment.yml`.
+	
+	STEP A: Via the terminal install all packages listed in environment.yml 
 
- **STEP B:** Place all .csv files created in A.2.2. in the folder `figure-table-codes\data\`.
+	STEP B: Place all .csv files created in 2.2. in the folder figure-table-codes\data\.
 
- **STEP C:** Via the terminal navigate to `src\` and run the code in `src\run.py` to create all figures and tables.
-   Outputs will be saved to `out\` . Calculations for the fiscal multiplier are printed at the end of the file
-   and additionally saved to a tex file.
- 
- ```python run.py```
+	STEP C: Via the terminal navigate to src\ and run the code in src\run.py to create all figures and tables.
+			Outputs will be saved to out\. Calculations for the fiscal multiplier are printed at the end of the file
+			and additionally saved to a tex file.
+	
+	```python run.py```
+
 
 **Output files**:
+	FIGURES:
+	- Heterogeneity in earnings (Figure 6) [rdd-heterogeneity-MEMP_avg_rec.eps, rdd-heterogeneity-REGEMP_avg_rec.eps]
+	- Heterogeneity in exit (Figure 7) [rdd-heterogeneity-status_pension_post4.eps]
 
- FIGURES:
+	TABLES:
+	- Balancing of covariates (Table 2) [covariates.tex]
+	- Employment outcomes (Table 3) [employment.tex]
+	- DI exit (Table 4) [status-annual-pension.tex]
+	- Mortality (Table 5) [mortality-fraction-dead.tex]
+	- Fiscal Multiplier Calculation (Table 7) [fiscal_multiplier.tex]
 
- - Heterogeneity in benefits (Figure 6) [*rdd-heterogeneity-RTBT_2014.png*]
- - Heterogeneity in earnings (Figure 9) [*rdd-heterogeneity-MEMP_avg_rec.png*, *rdd-heterogeneity-REGEMP_avg_rec.png*]
- - Heterogeneity in exit (Figure 11) [*rdd-heterogeneity-status_pension_post4.png*]
- - Heterogeneity in mortality (Figure 13) [*rdd-heterogeneity-dead_post_6.png*]
 
- TABLES:
+=======================================
+MAPPING OF TABLES AND FIGURES
+=======================================
 
- - Balancing of covariates (Table 2) [*covariates.tex*]
- - Employment outcomes (Table 3) [*employment.tex*]
- - DI exit (Table 4) [*status-annual-pension.tex*]
- - Mortality (Table 5) [*mortality-fraction-dead.tex*]
- - Fiscal Multiplier Calculation (Table 6) [*fiscal_multiplier.tex*]
+The table below maps each table/figure in the paper to the output file it is saved
+as, the CSV source data files (where applicable) and the script that produces it.
 
-## DIRECTORY STRUCTURE
+Scripts starting with a directory (e.g. `do-rdd/...`) live under
+`fdz-rv-codes/syntax/` and are run at the FDZ-RV. Scripts starting with `src/...`
+live under `figure-table-codes/` and are run locally.
 
-```
+MAIN PAPER
+----------
+
+| Paper element | Output file (extension) | Source CSV(s) (in figure-table-codes/data/) | Producing script |
+|---|---|---|---|
+| Figure 4 (DI takeup)              | A_takeup/01_graph_mean_START_GDI_all_50to60.{png,eps,pdf}, A_takeup/02_graph_estimates_m_takeup_gdi_all_50to60.{png,eps,pdf} | — | do-takeup/00_main.do |
+| Figure 5 (Benefit change)         | C_balancing/covariates/RTBT_2014_by_gender.{png,eps} | — | do-rdd/C_02_rdd_covariates_plots.do |
+| Figure 6 (Earnings heterogeneity) | out/rdd-heterogeneity-MEMP_avg_rec.eps, out/rdd-heterogeneity-REGEMP_avg_rec.eps | OUT_LABOR_HETEROGENEITY.csv | src/run.py (via plot_heterogeneity_graphs.py) |
+| Figure 7 (Exit heterogeneity)     | out/rdd-heterogeneity-status_pension_post4.eps | OUT_STATUS_HETEROGENEITY.csv | src/run.py (via plot_heterogeneity_graphs.py) |
+| Table 1 (Takeup regressions)      | A_takeup/02_reg_pooled_takeup_all_50to60.tex, 02_reg_pooled_takeup_female_50to60.tex, 02_reg_pooled_takeup_male_50to60.tex | — | do-takeup/00_main.do |
+| Table 2 (Covariate balancing)     | out/covariates.tex               | OUT_RDD_COVARIATES_BW.csv                             | src/run.py (via extract_covariates_table.py); CSV from do-rdd/C_01_rdd_covariates.do |
+| Table 3 (Employment outcomes)     | out/employment.tex               | OUT_LABOR_HETEROGENEITY.csv, appendix_OUT_LABOR_CONTROLS.csv | src/run.py (via extract_employment_table.py); CSVs from do-rdd/D_04_tab_employment.do and do-rdd/D_07_tab_employment_with_covariates.do |
+| Table 4 (DI exit annual)          | out/status-annual-pension.tex    | OUT_STATUS_HETEROGENEITY.csv, OUT_STATUS_CONTROLS.csv | src/run.py (via extract_status_table.py); CSVs from do-rdd/D_10_tab_status.do and do-rdd/D_12_tab_status_with_covariates.do |
+| Table 5 (Mortality)               | out/mortality-fraction-dead.tex  | appendix_OUT_MORTALITY_HETEROGENEITY.csv, OUT_MORTALITY_CONTROLS.csv | src/run.py (via extract_mortality_table.py); CSVs from do-rdd/D_01_tab_mortality.do and do-rdd/D_08_tab_mortality_with_covariates.do |
+| Table 7 (Fiscal Multiplier)       | out/fiscal_multiplier.tex        | — (uses src/fiscal-multiplier.xlsx) | src/run.py (via compute_fiscal_multiplier.py) |
+
+
+=======================================
+DIRECTORY STRUCTURE
+=========================================
+
+data/
+   _OUT_DATA_WORK/
+   AKVS/
+   RTWF/
+   RTZN/
+
 fdz-rv-codes/
-   data/
-      _OUT_DATA_WORK/
-      AKVS/
-      RTWF/
-      RTZN/
    out/
       A_takeup/
       B_descriptives/
@@ -172,7 +191,7 @@ fdz-rv-codes/
       D_RDD_outcomes/
          first_stage/
          labor_supply/
-         mortality/
+	 mortality/
          status/
    syntax/
       do_data/
@@ -192,7 +211,6 @@ fdz-rv-codes/
        with_covariates/
 
 figure-table-codes/
- data/
- out/
- src/
- ```
+	data/
+	out/
+	src/
