@@ -133,7 +133,7 @@ To create the files, the following steps are required (Runtime 30 s):
 
  FIGURES:
 
-= - Heterogeneity in earnings (Figure 6) [*rdd-heterogeneity-MEMP_avg_rec.png*, *rdd-heterogeneity-REGEMP_avg_rec.png*]
+- Heterogeneity in earnings (Figure 6) [*rdd-heterogeneity-MEMP_avg_rec.png*, *rdd-heterogeneity-REGEMP_avg_rec.png*]
  - Heterogeneity in exit (Figure 7) [*rdd-heterogeneity-status_pension_post4.png*]
 
  TABLES:
