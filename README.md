@@ -1,7 +1,8 @@
 # REPLICATION PACKAGE
 
 This repository contains replication code for generating all tables and figures in the
-paper "*Incentive Effects of Disability Benefits*" (Annica Gehlen, Sebastian Becker, Johannes Geyer, Peter Haan)
+paper "*Incentive Effects of Disability Benefits*" (Annica Gehlen, Sebastian Becker, Johannes Geyer, Peter Haan) 
+published in the Journal of Labor Economics.
 
 ## REQUIREMENTS
 
